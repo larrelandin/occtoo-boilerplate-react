@@ -4,7 +4,7 @@ This template provides a React+Typescript boilerplate with minimal setup using V
 
 **Docs:** https://docs.occtoo.com/
 
-![An image from the static](/img/get-started/fe-example-plp.png)
+![/public/docs/occtoo-plp.png](/public/docs/occtoo-plp.png)
 
 **Currently using these plugins:**
 
