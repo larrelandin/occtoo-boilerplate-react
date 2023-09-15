@@ -34,9 +34,8 @@ or using npm:
 ```bash
 npm run codegen
 ```
-:::note
-This command needs to be executed each time a change is made to the OpenAPI spec provided as input.
-:::
+> [!NOTE]
+> This command needs to be executed each time a change is made to the OpenAPI spec provided as input.
 
 ### 3. Start the app
 
