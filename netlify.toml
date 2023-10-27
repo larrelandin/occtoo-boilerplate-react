@@ -1,2 +1,2 @@
 [build]
-    command = "npm run codgen && npm run build"
+    command = "npm run codegen && npm run build"
