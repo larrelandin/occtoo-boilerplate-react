@@ -8,7 +8,7 @@ import { AiOutlineLoading } from 'react-icons/ai';
  * Pagination size
  */
 const PAGE_SIZE = 16;
-const CATEGORY = 'T-shirt'; // make this dynamic
+//const CATEGORY = 'T-shirt'; // make this dynamic
 
 const Category = () => {
   /**

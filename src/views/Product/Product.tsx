@@ -26,12 +26,12 @@ const Product = () => {
 
   const { filters } = useFilter();
 
-  const [page, setPage] = useState(0);
+  //const [page, setPage] = useState(0);
 
   const [product, setProduct] = useState<Product|null>();
 
   const { data, isLoading, isError, isRefetching } = useQuery<fullproductdataApiResponse>(
-    ['products', page, filters],
+    ['products', filters],
     () =>
       OcctooDestinationClient.fullproductdata({
         includeTotals: false,
