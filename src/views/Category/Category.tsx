@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { DefaultService as OcctooDestinationClient, productsApiResponse } from '@/generated';
+import { DefaultService as OcctooDestinationClient, limitedproductdataApiResponse } from '@/generated';
 import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import { AiOutlineLoading } from 'react-icons/ai';
@@ -24,15 +24,15 @@ const Category = () => {
   /**
    * Products
    */
-  const [products, setProducts] = useState<productsApiResponse['results']>([]);
+  const [products, setProducts] = useState<limitedproductdataApiResponse['results']>([]);
 
   /**
    * Fetch products
    */
-  const { data, isLoading, isError, isRefetching } = useQuery<productsApiResponse>(
+  const { data, isLoading, isError, isRefetching } = useQuery<limitedproductdataApiResponse>(
     ['products', page, filters],
     () =>
-      OcctooDestinationClient.products({
+      OcctooDestinationClient.limitedproductdata({
         top: PAGE_SIZE,
         skip: page * PAGE_SIZE,
         includeTotals: true,
@@ -96,7 +96,7 @@ const Category = () => {
             }}
             className="p-4 md:p-6"
           >
-            {products?.map((p, index) => (
+            {/* {products?.map((p, index) => (
               <ProductCard
                 key={index}
                 data={{
@@ -107,7 +107,7 @@ const Category = () => {
                   category: p.category || 'product',
                 }}
               />
-            ))}
+            ))} */}
           </div>
           {(data.total || 0) > (products.length || 0) && (
             <div className="px-6">
