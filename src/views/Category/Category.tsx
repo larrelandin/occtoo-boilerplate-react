@@ -1,17 +1,16 @@
 import { useEffect, useState } from 'react';
-import { DefaultService as OcctooDestinationClient, limitedproductdataApiResponse } from '@/generated';
+import { DefaultService as OcctooDestinationClient, productsApiResponse } from '@/generated';
 import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import { AiOutlineLoading } from 'react-icons/ai';
-import ProductFilter from './components/ProductFilter';
-import ProductCard from './components/ProductCard';
 
 /**
  * Pagination size
  */
 const PAGE_SIZE = 16;
+const CATEGORY = 'T-shirt'; // make this dynamic
 
-const Products = () => {
+const Category = () => {
   /**
    * Get filters from context
    */
@@ -25,18 +24,19 @@ const Products = () => {
   /**
    * Products
    */
-  const [products, setProducts] = useState<limitedproductdataApiResponse['results']>([]);
+  const [products, setProducts] = useState<productsApiResponse['results']>([]);
 
   /**
    * Fetch products
    */
-  const { data, isLoading, isError, isRefetching } = useQuery<limitedproductdataApiResponse>(
+  const { data, isLoading, isError, isRefetching } = useQuery<productsApiResponse>(
     ['products', page, filters],
     () =>
-      OcctooDestinationClient.limitedproductdata({
+      OcctooDestinationClient.products({
         top: PAGE_SIZE,
         skip: page * PAGE_SIZE,
         includeTotals: true,
+        
         filter: [
           {
             must: filters,
@@ -84,7 +84,6 @@ const Products = () => {
           <img src="/occtoo.webp" className="mr-2 w-5 h-5" />
           <div>Occtoo Demo</div>
         </div>
-        <ProductFilter isLoading={isLoading || isRefetching} />
       </div>
 
       {data && products && (
@@ -102,7 +101,7 @@ const Products = () => {
                 key={index}
                 data={{
                   id: p.id || '',
-                  title: p.title || '',
+                  title: p.name || '',
                   subTitle: p.id || '',
                   imageSrc: p.thumbnail || '',
                   category: p.category || 'product',
@@ -130,4 +129,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default Category;

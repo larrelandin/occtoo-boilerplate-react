@@ -1,5 +1,5 @@
 import { FilterProvider } from './providers/FilterProvider';
-import { Products } from '@/views';
+import { Products, Product, Category } from '@/views';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -21,6 +21,14 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <Products />,
+  },
+  {
+    path: '/:categoryName',
+    element: <Category />,
+  },
+  {
+    path: '/:categoryName/:productId',
+    element: <Product />,
   },
 ]);
 
