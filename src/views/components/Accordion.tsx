@@ -32,7 +32,6 @@ export default function Accordion({
                 <h2>
                     <button 
                         className="flex items-center justify-between w-full text-left font-semibold py-2"
-                        //onClick={(e) => { e.preventDefault(); setAccordionOpen(!accordionOpen); }}
                         onMouseEnter={(e) => { e.preventDefault(); setAccordionOpen(true)}}
                         onMouseLeave={(e) => {e.preventDefault(); setAccordionOpen(false)}}
                         aria-expanded={accordionOpen}
