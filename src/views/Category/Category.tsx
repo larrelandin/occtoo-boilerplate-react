@@ -3,6 +3,7 @@ import { DefaultService as OcctooDestinationClient, limitedproductdataApiRespons
 import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import { AiOutlineLoading } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 /**
  * Pagination size
@@ -80,10 +81,10 @@ const Category = () => {
   return (
     <div className="md:flex items-start">
       <div className="w-full md:w-[350px] flex-shrink-0 p-4 md:p-6 md:sticky top-0">
-        <div className="flex items-center font-medium mb-6">
+        <Link className="flex items-center font-medium mb-6" to="/" >
           <img src="/occtoo.webp" className="mr-2 w-5 h-5" />
           <div>Occtoo Demo</div>
-        </div>
+        </Link>
       </div>
 
       {data && products && (
