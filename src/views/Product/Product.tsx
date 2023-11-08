@@ -4,8 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import {useParams, Link} from 'react-router-dom';
 import Accordion from '../components/Accordion';
-import Rater from 'react-rater';
-import 'react-rater/lib/react-rater.css';
+import ImageGallery from 'react-image-gallery';
 
 type Increment<A extends number[]> = [...A, 0];
  
@@ -67,7 +66,15 @@ const Product = () => {
             <div className="container px-5 py-24 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
                 <div className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200">
-
+                  <ImageGallery
+                    showBullets={false}
+                    showFullscreenButton={false}
+                    showPlayButton={false}
+                    items={product.media!.slice(1).filter(item => item.url && item.url.trim() !== '').map(item => ({
+                      original: item.url || '',
+                      thumbnail: item.url + '?impolicy=small'
+                    }))}
+                  />
                   </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.collection}</h2>
@@ -76,11 +83,7 @@ const Product = () => {
                     <span className="flex items-center">
                       <span className="text-gray-600 mr-2">{product.averageReview}</span>
                       <div className="text-xl">
-                        <Rater
-                          total={5}
-                          interactive={false}
-                          rating={product.averageReview}
-                        />
+
                       </div>
                       <span className="text-gray-600 ml-3">{product.totalReviews} Reviews</span>
                     </span>
