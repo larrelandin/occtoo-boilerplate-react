@@ -5,7 +5,6 @@ import { useFilter } from '@/providers/FilterProvider';
 import {useParams, Link} from 'react-router-dom';
 import Accordion from '../components/Accordion';
 import ImageGallery from 'react-image-gallery';
-import Rater from 'react-rater';
 
 type Increment<A extends number[]> = [...A, 0];
  
@@ -84,7 +83,11 @@ const Product = () => {
                     <span className="flex items-center">
                       <span className="text-gray-600 mr-2">{product.averageReview}</span>
                       <div className="text-xl">
-
+                        {/* <Rater
+                          total={5}
+                          interactive={false}
+                          rating={product.averageReview}
+                        /> */}
                       </div>
                       <span className="text-gray-600 ml-3">{product.totalReviews} Reviews</span>
                     </span>
