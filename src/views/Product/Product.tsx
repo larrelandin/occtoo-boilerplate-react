@@ -84,11 +84,7 @@ const Product = () => {
                     <span className="flex items-center">
                       <span className="text-gray-600 mr-2">{product.averageReview}</span>
                       <div className="text-xl">
-                        <Rater
-                          total={5}
-                          interactive={false}
-                          rating={product.averageReview}
-                        />
+
                       </div>
                       <span className="text-gray-600 ml-3">{product.totalReviews} Reviews</span>
                     </span>
