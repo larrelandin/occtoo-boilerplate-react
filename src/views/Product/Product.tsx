@@ -4,7 +4,6 @@ import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import {useParams, Link} from 'react-router-dom';
 import Accordion from '../components/Accordion';
-import 'react-rater/lib/react-rater.css';
 
 type Increment<A extends number[]> = [...A, 0];
  
