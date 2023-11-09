@@ -4,8 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import {useParams, Link} from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import Rater from '../components/Rater';
 import ImageGallery from 'react-image-gallery';
-import Rater from 'react-rater';
 
 type Increment<A extends number[]> = [...A, 0];
  
@@ -80,18 +80,10 @@ const Product = () => {
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
                   <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.collection}</h2>
                   <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h1>
-                  <div className="flex mb-4">
-                    <span className="flex items-center">
-                      <span className="text-gray-600 mr-2">{product.averageReview}</span>
-                      <div className="text-xl">
-                        <Rater
-                          total={5}
-                          rating={product.averageReview}
-                        />
-                      </div>
-                      <span className="text-gray-600 ml-3">{product.totalReviews} Reviews</span>
-                    </span>
-                  </div>
+                    <Rater
+                      averageRating = {product.averageReview}
+                      totalRatings={product.totalReviews}
+                    />
                   <p className="leading-relaxed">{product.description}</p>
                   <Accordion id='wash' title= "Washing Instructions" text= {product.wash} />
                   <Accordion id='material' title= "Product Material" text= {product.material} />
