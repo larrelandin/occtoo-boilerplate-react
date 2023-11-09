@@ -85,13 +85,25 @@ const Product = () => {
                       totalRatings={product.totalReviews}
                     />
                   <p className="leading-relaxed">{product.description}</p>
+                  <div className="mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
+                  {product.pricing && product.pricing[0] && product.pricing[0].price !== null && (
+                    <span>
+                      <span>Pricing: </span>
+                      <span className="title-font font-medium text-l text-gray-900">{product.pricing[0].price?.toLocaleString('se') + ' ' + product.pricing[0].currency}</span>
+                    </span>
+                  )}
+                  {product.stockLevel && product.stockLevel > 0 ? (
+                    <span className='ml-10'>
+                      <span>Availability: </span>
+                      <span className="title-font font-medium text-l text-gray-900">{product.stockLevel} items in stock</span>
+                    </span>
+                  ) : (
+                    <span className="title-font font-medium text-l text-gray-900 ml-10">Product out of stock</span>
+                  )}
+                  </div>
                   <Accordion id='wash' title= "Washing Instructions" text= {product.wash} />
                   <Accordion id='material' title= "Product Material" text= {product.material} />
                   <Accordion id='weight' title= "Weight" text= {product.weight} />
-                  <div className="flex">
-                    <span className="title-font font-medium text-2xl text-gray-900">{product.pricing && product.pricing[0] && product.pricing[0].price !== null ? product.pricing[0].price + ' ' + product.pricing[0].currency : ''}</span>
-                    <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">Commerce!</button>
-                  </div>
                 </div>
               </div>
             </div>
