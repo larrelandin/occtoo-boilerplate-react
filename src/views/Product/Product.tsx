@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { DefaultService as OcctooDestinationClient, fullproductdataApiResponse } from '@/generated';
 import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
-import {useParams, Link} from 'react-router-dom';
-import Accordion from '../components/Accordion';
-import Rater from '../components/Rater';
+import {useParams} from 'react-router-dom';
+import Accordion from './components/Accordion/Accordion';
+import Rater from './components/Rater/Rater';
 import ImageGallery from 'react-image-gallery';
 
 type Increment<A extends number[]> = [...A, 0];
@@ -57,10 +57,6 @@ const Product = () => {
   return (
     <div className="md:flex items-start">
       <div className="w-full flex-shrink-0 p-4 md:p-6 md:sticky top-0">
-        <Link className="flex items-center font-medium mb-6" to="/" >
-          <img src="/occtoo.webp" className="mr-2 w-5 h-5" />
-          <div>Occtoo Demo</div>
-        </Link>
         {data && product && (
         <div className={`w-full pb-10 ${isLoading || isRefetching ? 'opacity-50' : ''}`}>
           <section className="text-gray-700 body-font overflow-hidden bg-white">
