@@ -80,10 +80,6 @@ const Products = () => {
   return (
     <div className="md:flex items-start">
       <div className="w-full md:w-[350px] flex-shrink-0 p-4 md:p-6 md:sticky top-0">
-        <div className="flex items-center font-medium mb-6">
-          <img src="/occtoo.webp" className="mr-2 w-5 h-5" />
-          <div>Occtoo Demo</div>
-        </div>
         <ProductFilter isLoading={isLoading || isRefetching} />
       </div>
 
