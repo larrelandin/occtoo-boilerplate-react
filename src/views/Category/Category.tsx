@@ -3,7 +3,6 @@ import { DefaultService as OcctooDestinationClient, limitedproductdataApiRespons
 import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
 import { AiOutlineLoading } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 
 /**
  * Pagination size
