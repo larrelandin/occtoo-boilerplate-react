@@ -7,7 +7,6 @@ type FooterProps = {
 const Footer: React.FC<FooterProps> = ({isOcctooSourcesVisible}) => {
 return (
     <>
-      <span>{isOcctooSourcesVisible ? "Yes" : "No" }</span>
     </>
   );
 };

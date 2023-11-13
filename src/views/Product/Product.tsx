@@ -76,7 +76,11 @@ const Product = () => {
                   />
                   </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className={`text-sm title-font text-gray-500 tracking-widest ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`}>{product.collection}</h2>
+                  <h2 className="text-sm title-font text-gray-500 tracking-widest">
+                    <span className={` ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`}>{product.collection}</span>
+                    <span> | </span>
+                    <span className={` ${isOcctooSourcesVisible ? 'border-2 border-yellow-500 mt-1' : ''}`}>{product.productId}</span>
+                  </h2>
                   <h1 className={`text-gray-900 text-3xl title-font font-medium mb-1  ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`}>{product.title}</h1>
                     <div className={`${isOcctooSourcesVisible ? 'border-2 border-rose-500 mt-1' : ''}`}>
                     <Rater

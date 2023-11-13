@@ -1,4 +1,5 @@
 import { useFilter } from '@/providers/FilterProvider';
+import {useOutletContext} from 'react-router-dom';
 
 interface IFilterGroup {
   header: string;
@@ -10,6 +11,9 @@ interface IFilterGroup {
 }
 
 const FilterGroup: React.FC<IFilterGroup> = ({ header, facetKey, values }) => {
+  
+  
+  const isOcctooSourcesVisible = useOutletContext();
   /**
    * * Get filters from context
    */
@@ -70,7 +74,7 @@ const FilterGroup: React.FC<IFilterGroup> = ({ header, facetKey, values }) => {
 
   return (
     <>
-      <div className="mb-4">
+      <div className={`mb-4 ${isOcctooSourcesVisible ? 'border-2 border-green-500 mt-1' : ''}`}>
         <div className="font-medium text-md capitalize border-b pb-1">{header?.split('|').pop()}</div>
         {values?.map((value, index) => (
           <div
