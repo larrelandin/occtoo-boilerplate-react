@@ -1,10 +1,4 @@
-import React from 'react';
-
-type FooterProps = {
-  isOcctooSourcesVisible: boolean;
-};
-
-const Footer: React.FC<FooterProps> = ({isOcctooSourcesVisible}) => {
+const Footer = () => {
 return (
     <>
     </>

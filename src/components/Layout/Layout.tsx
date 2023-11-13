@@ -15,7 +15,7 @@ const Layout = () => {
     <>
       <Header handleOcctooSourcesVisible={handleOcctooSourcesVisible} />
       <Outlet context={isOcctooSourcesVisible} />
-      <Footer isOcctooSourcesVisible={isOcctooSourcesVisible} />
+      <Footer />
     </>
   );
 };
