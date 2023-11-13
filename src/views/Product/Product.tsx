@@ -64,7 +64,7 @@ const Product = () => {
           <section className="text-gray-700 body-font overflow-hidden bg-white">
             <div className="container px-5 py-24 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                <div className={`lg:w-1/2 w-full object-cover object-center rounded border border-gray-200 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 m-1' : ''}`}>
+                <div className={`lg:w-1/2 w-full object-cover object-center rounded border border-gray-200 ${isOcctooSourcesVisible ? 'border-2 border-teal-500' : ''}`}>
                   <ImageGallery
                     showBullets={false}
                     showFullscreenButton={false}
@@ -76,24 +76,24 @@ const Product = () => {
                   />
                   </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className={`text-sm title-font text-gray-500 tracking-widest ${isOcctooSourcesVisible ? 'border-2 border-teal-500 m-1' : ''}`}>{product.collection}</h2>
-                  <h1 className={`text-gray-900 text-3xl title-font font-medium mb-1  ${isOcctooSourcesVisible ? 'border-2 border-teal-500 m-1' : ''}`}>{product.title}</h1>
-                    <div className={`${isOcctooSourcesVisible ? 'border-2 border-rose-500 p-2' : ''}`}>
+                  <h2 className={`text-sm title-font text-gray-500 tracking-widest ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`}>{product.collection}</h2>
+                  <h1 className={`text-gray-900 text-3xl title-font font-medium mb-1  ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`}>{product.title}</h1>
+                    <div className={`${isOcctooSourcesVisible ? 'border-2 border-rose-500 mt-1' : ''}`}>
                     <Rater
                       averageRating = {product.averageReview}
                       totalRatings={product.totalReviews}
                     />
                     </div>
-                  <p className="leading-relaxed">{product.description}</p>
+                  <p className={`leading-relaxed ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`}>{product.description}</p>
                   <div className="mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                   {product.pricing && product.pricing[0] && product.pricing[0].price !== null && (
-                    <span>
+                    <span className={` ${isOcctooSourcesVisible ? 'border-2 border-yellow-500 mt-1' : ''}`}>
                       <span>Pricing: </span>
                       <span className="title-font font-medium text-l text-gray-900">{product.pricing[0].price?.toLocaleString('se') + ' ' + product.pricing[0].currency}</span>
                     </span>
                   )}
                   {product.stockLevel && product.stockLevel > 0 ? (
-                    <span className='ml-10'>
+                    <span className={`ml-10 ${isOcctooSourcesVisible ? 'border-2 border-blue-500 mt-1' : ''}`}>
                       <span>Availability: </span>
                       <span className="title-font font-medium text-l text-gray-900">{product.stockLevel} items in stock</span>
                     </span>
@@ -101,9 +101,9 @@ const Product = () => {
                     <span className="title-font font-medium text-l text-gray-900 ml-10">Product out of stock</span>
                   )}
                   </div>
-                  <Accordion id='wash' title= "Washing Instructions" text= {product.wash} />
-                  <Accordion id='material' title= "Product Material" text= {product.material} />
-                  <Accordion id='weight' title= "Weight" text= {product.weight} />
+                  <Accordion className={`mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`} id='wash' title= "Washing Instructions" text= {product.wash} />
+                  <Accordion className={`mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`} id='material' title= "Product Material" text= {product.material} />
+                  <Accordion className={`mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`} id='weight' title= "Weight" text= {product.weight} />
                 </div>
               </div>
             </div>
