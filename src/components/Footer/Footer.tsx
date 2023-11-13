@@ -1,6 +1,13 @@
-const Footer = () => {
+import React from 'react';
+
+type FooterProps = {
+  isOcctooSourcesVisible: boolean;
+};
+
+const Footer: React.FC<FooterProps> = ({isOcctooSourcesVisible}) => {
 return (
     <>
+      <span>{isOcctooSourcesVisible ? "Yes" : "No" }</span>
     </>
   );
 };

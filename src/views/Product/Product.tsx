@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { DefaultService as OcctooDestinationClient, fullproductdataApiResponse } from '@/generated';
 import { useQuery } from '@tanstack/react-query';
 import { useFilter } from '@/providers/FilterProvider';
-import {useParams} from 'react-router-dom';
+import {useOutletContext, useParams} from 'react-router-dom';
 import Accordion from './components/Accordion/Accordion';
 import Rater from './components/Rater/Rater';
 import ImageGallery from 'react-image-gallery';
@@ -24,6 +24,8 @@ type DeepRequired<
 type Product = DeepRequired<fullproductdataApiResponse, 2>["results"][number];
 
 const Product = () => { 
+
+  const isOcctooSourcesVisible = useOutletContext();
 
   const {productId} = useParams();
 
@@ -62,7 +64,7 @@ const Product = () => {
           <section className="text-gray-700 body-font overflow-hidden bg-white">
             <div className="container px-5 py-24 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
-                <div className="lg:w-1/2 w-full object-cover object-center rounded border border-gray-200">
+                <div className={`lg:w-1/2 w-full object-cover object-center rounded border border-gray-200 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 m-1' : ''}`}>
                   <ImageGallery
                     showBullets={false}
                     showFullscreenButton={false}
@@ -74,12 +76,14 @@ const Product = () => {
                   />
                   </div>
                 <div className="lg:w-1/2 w-full lg:pl-10 lg:py-6 mt-6 lg:mt-0">
-                  <h2 className="text-sm title-font text-gray-500 tracking-widest">{product.collection}</h2>
-                  <h1 className="text-gray-900 text-3xl title-font font-medium mb-1">{product.title}</h1>
+                  <h2 className={`text-sm title-font text-gray-500 tracking-widest ${isOcctooSourcesVisible ? 'border-2 border-teal-500 m-1' : ''}`}>{product.collection}</h2>
+                  <h1 className={`text-gray-900 text-3xl title-font font-medium mb-1  ${isOcctooSourcesVisible ? 'border-2 border-teal-500 m-1' : ''}`}>{product.title}</h1>
+                    <div className={`${isOcctooSourcesVisible ? 'border-2 border-rose-500 p-2' : ''}`}>
                     <Rater
                       averageRating = {product.averageReview}
                       totalRatings={product.totalReviews}
                     />
+                    </div>
                   <p className="leading-relaxed">{product.description}</p>
                   <div className="mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5">
                   {product.pricing && product.pricing[0] && product.pricing[0].price !== null && (
