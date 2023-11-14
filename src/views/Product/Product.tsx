@@ -62,7 +62,7 @@ const Product = () => {
         {data && product && (
         <div className={`w-full pb-10 ${isLoading || isRefetching ? 'opacity-50' : ''}`}>
           <section className="text-gray-700 body-font overflow-hidden bg-white">
-            <div className="container px-5 py-24 mx-auto">
+            <div className="container px-2 py-2 mx-auto">
               <div className="lg:w-4/5 mx-auto flex flex-wrap">
                 <div className={`lg:w-1/2 w-full object-cover object-center rounded border border-gray-200 ${isOcctooSourcesVisible ? 'border-2 border-teal-500' : ''}`}>
                   <ImageGallery
