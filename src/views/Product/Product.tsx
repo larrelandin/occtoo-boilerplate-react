@@ -107,7 +107,6 @@ const Product = () => {
                   </div>
                   <Accordion className={`mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`} id='wash' title= "Washing Instructions" text= {product.wash} />
                   <Accordion className={`mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`} id='material' title= "Product Material" text= {product.material} />
-                  <Accordion className={`mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5 ${isOcctooSourcesVisible ? 'border-2 border-teal-500 mt-1' : ''}`} id='weight' title= "Weight" text= {product.weight} />
                 </div>
               </div>
             </div>
