@@ -1,3 +1,6 @@
 {
-    "buildCommand": "npm run codegen && npm run build"
+    "buildCommand": "npm run codegen && npm run build",
+    "rewrites":  [
+        {"source": "/(.*)", "destination": "/"}
+    ]
 }
